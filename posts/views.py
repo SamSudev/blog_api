@@ -1,9 +1,7 @@
-from django.shortcuts import render
-
-# Create your views here.
+# posts/views.py
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny # Importa AllowAny
 from .models import Post
 from .serializers import PostSerializer
 
@@ -13,7 +11,6 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [AllowAny]
-
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    permission_classes = [AllowAny] # Permite el acceso a cualquier usuario
+    
+    # Ya no necesitas el método perform_create

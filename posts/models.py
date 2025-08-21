@@ -1,7 +1,7 @@
-
+# posts/models.py
 
 from django.db import models
-
+# Ya no necesitamos importar 'User' si el autor es un string
 
 class Post(models.Model):
     """
